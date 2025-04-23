@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Management Frontend
+
+A modern, responsive Single Page Application built with **Next.js** and **TypeScript** for managing personal tasks. This frontend connects to a Laravel backend API for comprehensive task management capabilities.
+
+## Technical Architecture
+
+### Core Technologies
+
+- ⚙️ **Next.js 13+**: Utilizes the App Router for improved page routing and server-side rendering  
+- 📘 **TypeScript**: Static typing for enhanced code quality and developer experience  
+- 🎨 **Tailwind CSS**: Utility-first CSS framework for responsive UI design  
+- 🔁 **React Query**: Data fetching, caching, and state management  
+- 🧾 **Zod + React Hook Form**: Schema-based form validation with TypeScript integration  
+- 🌐 **Axios**: HTTP client configured with interceptors for token management  
+
+## Authentication Implementation
+
+Authentication uses **Laravel Sanctum** with:
+
+- 🔄 Context-based auth state management  
+- 🧠 Token storage in `localStorage` with security considerations  
+- 📦 Axios interceptors for automatic token inclusion  
+- 🔒 Protected route middleware  
+- ✅ Automatic token verification and refresh  
+
+## Data Management
+
+Powered by **React Query**:
+
+- ⚡ Automatic caching and background updates  
+- 🔁 Optimistic UI updates for faster interaction  
+- 🔂 Request deduplication  
+- 🎯 Controlled refetching on window focus  
+
+## Component Design Pattern
+
+Component architecture includes:
+
+- 🧩 **Presentation Components** – Pure UI with no logic  
+- 📦 **Container Components** – Handle state and data fetching  
+- 🧠 **Higher-order Components** – For cross-cutting concerns  
+- 🔄 **Custom Hooks** – Shared reusable logic  
+
+## State Management Strategy
+
+State is managed using multiple approaches:
+
+- 🌍 **Global State** – React Context API (e.g., authentication)  
+- 📡 **Server State** – React Query for remote data  
+- 🧮 **Form State** – React Hook Form for input control  
+- 🧠 **Local State** – `useState` for UI-specific logic  
+
+## Key Features
+
+### Advanced Filtering System
+
+Supports dynamic filters with URL sync:
+
+- 📌 Status filtering: Pending, In-Progress, Completed  
+- 📅 Date filtering: Specific date or date ranges  
+- 🔍 Search: Title and description matching  
+- 🔗 Filters persist via URL parameters  
+
+### Responsive Pagination
+
+Pagination features include:
+
+- 📑 Server-side pagination with page size options  
+- 🔁 Filter context preservation across pages  
+- ➕ Dynamic page number rendering with ellipses  
+- 🌀 Page reset when filters change  
+
+### Form Validation Architecture
+
+Uses Zod + React Hook Form:
+
+- 🔐 Runtime validation with schemas  
+- 🔍 TypeScript inference from schemas  
+- 💬 Real-time feedback and error messages  
+- ♻️ Reusable validation logic  
+
+## Performance Optimizations
+
+Optimizations include:
+
+- 🔀 Code splitting via Next.js  
+- ⚡ Optimistic UI updates  
+- ♻️ Memoization using `useMemo` and `useCallback`  
+- 🗃️ Intelligent caching with React Query  
+- 💤 Lazy loading of components and routes  
+
+## Security Considerations
+
+Security best practices implemented:
+
+- 🔒 XSS protection via React's safeguards  
+- 🔐 Secure auth with proper token storage  
+- 🛡️ CSRF protection via Laravel Sanctum  
+- ✅ Client-side and server-side authorization checks  
+- 🧾 Strict input validation before form submission  
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project:
 
 ```bash
+git clone git@github.com:subtain-haider/task-management-front.git
+cd task-management-front
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Make sure to configure the `.env.local` file with the correct API endpoint and environment variables.
