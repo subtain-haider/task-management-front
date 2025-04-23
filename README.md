@@ -99,7 +99,7 @@ Security best practices implemented:
 - ✅ Client-side and server-side authorization checks  
 - 🧾 Strict input validation before form submission  
 
-## Getting Started
+## Getting Started Without Docker
 
 To get started with this project:
 
@@ -111,3 +111,13 @@ npm run dev
 ```
 
 Make sure to configure the `.env.local` file with the correct API endpoint and environment variables.
+
+### Quick Start With Docker
+
+Make sure Docker is running, then:
+```bash
+git clone git@github.com:subtain-haider/task-management-front.git
+cd task-management-front
+docker build -t task-management-front .
+docker run -p 3000:3000 task-management-front
+```
